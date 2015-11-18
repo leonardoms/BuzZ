@@ -1,5 +1,16 @@
 # BuzZ
-Library to auto collect posts for specific themes or words in social medias networks (twitter, facebook, ...)
 
-TODO: documentation
-TODO: Makefiles
+BuzZ is a extensible and configurable library for network data collect from social medias. This works based on two interfaces: buzz and buzzData.
+
+
+### buzz Interface
+Implements the connection with the network and how the library will communicate with social medias (eg.: twitter, facebook, instagram, etc.)
+
+
+### buzzData Interface
+Implements the way that data will be stored (eg.: postgresql, file, stdout, etc.).
+
+
+### TODO: 
+- Documentation
+- Makefiles
