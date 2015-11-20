@@ -1,6 +1,6 @@
 # BuzZ
 
-BuzZ is a extensible and configurable library for network data collect from social medias. This works based on two interfaces: buzz and buzzData.
+BuzZ is a extensible and configurable library for network data collect from social medias with realtime (stream) suport. This works based on two interfaces: buzz and buzzData.
 
 
 ### buzz Interface
