@@ -15,6 +15,6 @@ typedef struct _buzzTwitter   buzzTwitter;
 #define BUZZ_TWITTER(obj)  ( (buzzTwitter*)obj )
 
 buzzTwitter*
-buzz_create_twitter();
+buzz_create_twitter(buzzData  *bzdata);
 
 #endif

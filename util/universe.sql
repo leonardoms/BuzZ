@@ -24,3 +24,12 @@ CREATE TABLE universe (
 	lang				character varying(8),
 	timestamp_str			character varying(24)
 );
+
+CREATE OR REPLACE FUNCTION OnINSERTCallback() AS $$
+DECLARE
+
+BEGIN
+
+
+END
+$$ LANGUAGE plpgsql;

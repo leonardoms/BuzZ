@@ -25,7 +25,7 @@ buzz_connect_facebook(buzzFacebook *bzFacebook);
 
 void
 buzz_collect_facebook(buzz *self) {
-
+    return;
 }
 
 buzzFacebook*

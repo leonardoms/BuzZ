@@ -24,7 +24,7 @@ void
 buzz_collect(buzz *self);
 
 const char*
-buzz_name();
+buzz_name(buzz *self);
 
 const char*
 buzz_data_name(buzz *self);
