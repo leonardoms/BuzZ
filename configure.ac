@@ -1,0 +1,16 @@
+AC_INIT([libbuzz], [0.1], [leonardo@gpixel.org])
+AM_INIT_AUTOMAKE([-Wall])
+AC_PROG_CC
+AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_FILES([
+ Makefile
+ src/Makefile
+ test/Makefile
+])
+AM_PROG_AR
+LT_INIT
+
+AC_ENABLE_SHARED
+AC_DISABLE_STATIC
+
+AC_OUTPUT
