@@ -298,7 +298,7 @@ buzz_data_write_config_pgsql(buzzData *self, buzzValue_t  *buzzValue) {
                   strlen(str_escaped2) + 1;
         str = (char*)malloc(str_sz);
         sprintf(str, sql_insert, BUZZ_DATA_PGSQL(self)->private->config_tbl,
-                str_escaped, (char*)buzzValue->value);
+                str_escaped, str_escaped2);
     } else {
         // UPDATE
         PQclear( BUZZ_DATA_PGSQL(self)->private->res );
