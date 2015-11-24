@@ -25,4 +25,3 @@ Implements the way that data will be stored (eg.: postgresql, file, stdout, etc.
 
 ### TODO: 
 - [Documentation](https://github.com/leonardoms/BuzZ/wiki)
-- Makefiles
