@@ -10,7 +10,7 @@ struct _buzzDataStdIO_private {
 };
 
 struct _buzzDataStdIO {
-    buzzData   *bzData;
+    buzzData   bzData;
     struct _buzzDataStdIO_private *private;
 };
 
@@ -56,18 +56,21 @@ buzz_data_write_stdio(buzzData *self, buzzValueList_t  *bvList) {
 buzzDataStdIO*
 buzz_data_create_stdio() {
     buzzDataStdIO *bzstdio = NULL;
+    buzzData      *bzdata = NULL;
 
     bzstdio = BUZZ_DATA_STDIO( malloc(sizeof(buzzDataStdIO)) );
-
     if(bzstdio == NULL)
         return NULL;
 
-    memset((void*)bzstdio, 0, sizeof(buzzDataStdIO));
+    bzdata = buzz_data_create_default();
+    if( bzdata == NULL ) {
+        free( bzstdio );
+        return NULL;
+    }
 
-    bzstdio = BUZZ_DATA_STDIO( buzz_data_create_default() );
+    memcpy( (void*)bzstdio, (void*)bzdata, sizeof(buzzData) );
 
     bzstdio->private = (struct _buzzDataStdIO_private*)malloc(sizeof(struct _buzzDataStdIO_private));
-    bzstdio->private->config = NULL;
 
     memset((void*)bzstdio->private, 0, sizeof(struct _buzzDataStdIO_private));
 

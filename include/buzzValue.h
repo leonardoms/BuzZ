@@ -13,11 +13,11 @@
 #define FALSE 0
 #endif
 
-#define buzz_value_integer(obj) ( (obj != NULL) ? (int)(*((int*)obj->value)) : 0 )
-#define buzz_value_number(obj)  ( (obj != NULL) ? (double)(*((double*)obj->value)) : 0.0 )
-#define buzz_value_string(obj)  ( (obj != NULL) ? (char*)obj->value : (char*)NULL )
-
 typedef enum { BUZZ_TYPE_VOID = 0, BUZZ_TYPE_INTEGER, BUZZ_TYPE_NUMBER, BUZZ_TYPE_STRING } buzzValueType;
+
+#define buzz_value_integer(obj) ( (obj != NULL ) ? (int)(*((int*)obj->value)) : 0 )
+#define buzz_value_number(obj)  ( (obj != NULL ) ? (double)(*((double*)obj->value)) : 0.0 )
+#define buzz_value_string(obj)  ( (obj != NULL ) ? (char*)obj->value : (char*)NULL )
 
 struct _buzzValue {
     buzzValueType type;

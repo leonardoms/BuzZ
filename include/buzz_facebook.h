@@ -7,6 +7,8 @@
 #define  FACEBOOK_PUBLIC  0
 #define  FACEBOOK_USER    1
 
+#define  FACEBOOK_TOKEN_URL "https://graph.facebook.com/oauth/access_token?client_id=%s&client_secret=%s&type=client_cred"
+
 typedef struct _buzzFacebook   buzzFacebook;
 
 #define BUZZ_FACEBOOK(obj)  ( (buzzFacebook*)obj )

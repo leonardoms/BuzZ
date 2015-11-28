@@ -77,7 +77,7 @@ buzz_data_create_default() {
       return NULL;
     }
 
-    memset((void*)bzdata->private, 0, sizeof(struct _buzzDataPrivate));
+    //memset((void*)bzdata->private, 0, sizeof(struct _buzzDataPrivate));
 
     bzdata->name = "DefaultDataManager";
     bzdata->connect = buzz_data_connect_default;
@@ -111,6 +111,7 @@ buzz_data_get_keep_connected(buzzData *self) {
 
 void
 buzz_data_write_config(buzzData* self, buzzValue_t* bzvalue) {
+
     if( buzz_data_is_connected(self) == FALSE )
         if( self->connect(self) == FALSE ) {
             fprintf(stderr, "error [%s]: fails to connect.", BUZZ_DATA(self)->name );

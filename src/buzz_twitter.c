@@ -18,7 +18,6 @@ struct _twitter_private {
     char  *filter;
     int    method;
     char  *columns;
-    char  reconnect;
     char  *url;
     CURL      *curl;
     char      *str;
@@ -47,7 +46,6 @@ buzz_collect_twitter(buzz *self) {
     BUZZ_TWITTER(self)->private->method =          buzz_value_integer( buzz_read_config(self, "twitter_method") );
     BUZZ_TWITTER(self)->private->columns =         buzz_value_string( buzz_read_config(self, "twitter_collect") );
     BUZZ_TWITTER(self)->private->language =        buzz_value_string( buzz_read_config(self, "twitter_language") );
-    BUZZ_TWITTER(self)->private->reconnect = TRUE;
 
     if( BUZZ_TWITTER(self)->private->consumer_key == NULL ||
         BUZZ_TWITTER(self)->private->consumer_secret == NULL ||
@@ -320,7 +318,7 @@ buzz_connect_twitter(buzzTwitter *bzTwitter) {
         status = curl_easy_perform(bzTwitter->private->curl);
         if( status )
             printf("error [%s]: curl status #%d.\n", BUZZ(bzTwitter)->name, status );
-    } while ( bzTwitter->private->reconnect );
+    } while ( buzz_value_integer(buzz_read_config( BUZZ(bzTwitter), "twitter_reconnect")) );
 
     curl_easy_cleanup(bzTwitter->private->curl);
     curl_global_cleanup();

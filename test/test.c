@@ -24,6 +24,7 @@ int main(int argc, char const *argv[]) {
     buzz_write_config(BUZZ(bzTwitter), buzz_value_string_new( "twitter_filter", "[cC][oO][cC][aA][ -cC]") );
     buzz_write_config(BUZZ(bzTwitter), buzz_value_string_new( "twitter_collect", json_twitter_columns ) );
     buzz_write_config(BUZZ(bzTwitter), buzz_value_string_new( "twitter_language", "pt,und" ) );
+    buzz_write_config(BUZZ(bzTwitter), buzz_value_integer_new( "twitter_reconnect", TRUE ) );
 
     buzz_collect(bzTwitter);
 
