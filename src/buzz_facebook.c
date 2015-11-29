@@ -266,8 +266,8 @@ buzz_facebook_get_data(buzzFacebook *bzFacebook, char *url) {
           return NULL;
         }
 
-        //printf("%s\n", bzFacebook->private->str);
-
+//        printf("%s\n", bzFacebook->private->str);
+//        printf("%s\n", url);
         root = json_loads(bzFacebook->private->str, 0, &error);
         if(!root)
         {
@@ -282,25 +282,26 @@ buzz_facebook_get_data(buzzFacebook *bzFacebook, char *url) {
         }
     }
 
-    char  *node_name[256], *node_path[256], *columns = NULL;
+    char  *node_name[256], *node_path[256], *columns = NULL, *dummy = NULL;
     int i = 0, j;
     buzzValueList_t *bvlist = NULL;
 
     columns = strdup( buzz_value_string( buzz_read_config(BUZZ(bzFacebook), "facebook_post_fields")) );
-    node_name[i] = strtok( columns, ",;"  );
-    strtok( NULL, ",;"  );  // ignores FB API fields
-    node_path[i] = strtok( NULL, ",;"  );
+    node_name[i] =  strtok( columns, ",;"  );
+    dummy =         strtok( NULL, ",;"  );  // ignores FB API fields
+    node_path[i] =  strtok( NULL, ",;"  );
     while( node_name[i] != NULL && node_path[i] != NULL ) {
-        node_name[++i] = strtok( NULL, ",;"  );
-        strtok( NULL, ",;"  );  // ignores FB API fields
-        node_path[i] = strtok( NULL, ",;"  );
+        i++;
+        node_name[i] =  strtok( NULL, ",;"  );
+        dummy =           strtok( NULL, ",;"  );  // ignores FB API fields
+        node_path[i] =    strtok( NULL, ",;"  );
     }
 
     for(j = 0; j < i; j++) {
         //printf("get '%s' as '%s'\n", node_name[j], node_path[j]);
         bvlist = buzz_value_list_add( bvlist, buzz_facebook_get_node(bzFacebook, root, node_name[j], node_path[j]) );
     }
-    //free( columns );
+    free( columns );
 
     BUZZ(bzFacebook)->collected++;
     buzz_data_write(BUZZ_DATA(BUZZ(bzFacebook)->data), bvlist );
@@ -334,11 +335,11 @@ buzz_facebook_get_post(buzzFacebook *bzFacebook) {
 
     post_fields_tmp = strdup( post_fields );
     strtok( post_fields_tmp, ",;" ); // ignore column name
-    fields[i++] = strtok( NULL, ",;" );
+    fields[i] = strtok( NULL, ",;" );
     strtok( NULL, ",;" ); // ignore JSON path
     while( fields[i] != NULL && i < 256 ) {
         strtok( NULL, ",;" ); // ignore column name
-        fields[i++] = strtok( NULL, ",;"  );
+        fields[++i] = strtok( NULL, ",;"  );
         strtok( NULL, ",;" ); // ignore JSON path
     }
 
