@@ -7,12 +7,12 @@ BuzZ is a extensible and configurable library for network data collect from soci
 The table bellow show the current support:
 
 |             | Stream (Real Time) | Search Engine | Owned Object |
-|-------------|--------------------|---------------|--------------|
-| Twitter     |         YES        |       NO      |      NO      |
-| Facebook    |         NO         |       NO      |      YES     |
-| Google Plus |         NO         |       NO      |      NO      |
-| Instagram   |         NO         |       NO      |      NO      |
-| Youtube     |         NO         |       NO      |      NO      |
+|-------------|:------------------:|:-------------:|:------------:|
+| Twitter     |         yes        |       no      |      no      |
+| Facebook    |         no         |       no      |      yes     |
+| Google Plus |         no         |       no      |      no      |
+| Instagram   |         no         |       no      |      no      |
+| Youtube     |         no         |       no      |      no      |
 
 **Stream** is the realtime medias.
 
