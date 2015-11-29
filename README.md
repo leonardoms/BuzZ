@@ -1,6 +1,11 @@
 # BuzZ
 
+!!! experimental version !!!
+
 BuzZ is a extensible and configurable library for network data collect from social medias with realtime (stream) suport. This works based on two interfaces: buzz and buzzData.
+
+The table bellow show the current support:
+
 
 ### Build
 
