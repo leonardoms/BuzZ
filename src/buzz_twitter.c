@@ -253,6 +253,7 @@ buzz_twitter_write_stream(char *ptr, unsigned size, unsigned nmemb, void *udata)
 
     if( bzTwitter->private->str == NULL ) {
         printf("error[%s]: memory not allocated. [buzz_write_stream]\n", BUZZ(bzTwitter)->name);
+        return 0;
     }
 
     bzTwitter->private->str_blocks++;
