@@ -288,13 +288,13 @@ buzz_facebook_get_data(buzzFacebook *bzFacebook, char *url) {
 
     columns = strdup( buzz_value_string( buzz_read_config(BUZZ(bzFacebook), "facebook_post_fields")) );
     node_name[i] =  strtok( columns, ",;"  );
-    dummy =         strtok( NULL, ",;"  );  // ignores FB API fields
+    strtok( NULL, ",;"  );  // ignores FB API fields
     node_path[i] =  strtok( NULL, ",;"  );
     while( node_name[i] != NULL && node_path[i] != NULL ) {
         i++;
         node_name[i] =  strtok( NULL, ",;"  );
-        dummy =           strtok( NULL, ",;"  );  // ignores FB API fields
-        node_path[i] =    strtok( NULL, ",;"  );
+        strtok( NULL, ",;"  );  // ignores FB API fields
+        node_path[i] =  strtok( NULL, ",;"  );
     }
 
     for(j = 0; j < i; j++) {
