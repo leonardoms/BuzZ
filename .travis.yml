@@ -1,3 +1,7 @@
 language: C
 compiler: gcc
 script: autoreconf --install && ./configure && make && make test
+addons:
+  apt:
+    packages:
+    - curl
