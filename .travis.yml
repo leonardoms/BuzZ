@@ -3,4 +3,4 @@ compiler: gcc
 script: autoreconf --install && ./configure && make && make test
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y libcurl
+  - sudo apt-get install -y libcurl3
