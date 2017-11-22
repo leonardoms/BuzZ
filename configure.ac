@@ -1,6 +1,7 @@
 AC_INIT([libbuzz], [0.1], [leonardo@gpixel.org])
 AM_INIT_AUTOMAKE([-Wall])
 AC_PROG_CC
+AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([
  Makefile
@@ -15,7 +16,7 @@ AC_DISABLE_STATIC
 
 PKG_CHECK_MODULES(CURL, libcurl >= 7.0)
 PKG_CHECK_MODULES(PGSQL, libpq >= 9.4)
-PKG_CHECK_MODULES(JSON, libjansson4)
+PKG_CHECK_MODULES(JSON, jansson )
 PKG_CHECK_MODULES(OAUTH, oauth >= 1.0)
 
 AC_OUTPUT
