@@ -4,4 +4,3 @@ script: autoreconf --install && ./configure && make && make test
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libcurl3 libjansson4
-  - pkg-config --list-all | grep jansson
